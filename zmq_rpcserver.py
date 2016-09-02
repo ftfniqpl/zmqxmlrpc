@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+#-*-coding:utf-8 -*-
+#
+#Author: tony - birdaccp at gmail.com
+#Create by:2016-09-02 14:24:03
+#Last modified:2016-09-02 14:24:06
+#Filename:zmq_rpcserver.py
+#Description:
 import zmq
 from SimpleXMLRPCServer import SimpleXMLRPCDispatcher
 
@@ -19,7 +27,7 @@ class ZmqXMLRPCServer(SimpleXMLRPCDispatcher):
             except:
                 break
 
-        self.socket.close()    
+        self.socket.close()
 
 
 def hello(name):
@@ -33,5 +41,6 @@ if __name__ == '__main__':
     server = ZmqXMLRPCServer()
     server.register_function(hello)
     server.register_function(add)
-    server.register_function(wget)
     server.serve_forever()
+
+

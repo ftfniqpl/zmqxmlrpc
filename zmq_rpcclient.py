@@ -1,4 +1,11 @@
-# -*-coding:utf8 -*-
+#!/usr/bin/env python
+#-*-coding:utf-8 -*-
+#
+#Author: tony - birdaccp at gmail.com
+#Create by:2014-07-02 14:22:59
+#Last modified:2016-09-02 14:23:28
+#Filename:zmq_rpcclient.py
+#Description:
 
 import xmlrpclib
 from xmlrpclib import _Method, loads
@@ -36,11 +43,11 @@ class ZmqProxy(object):
 
         body = xmlrpclib.dumps(params, methodname)
         response = self.__transport.request(body)
-    
+
         if len(response) == 1:
             response = response[0]
 
-        return response    
+        return response
 
 
     def __getattr__(self, name):
@@ -62,5 +69,7 @@ class ZmqProxy(object):
 if __name__ == '__main__':
     proxy = ZmqProxy("tcp://127.0.0.1:5556")
     print str(proxy)
-    print proxy.hello("alexasdfasdfasdf")
+    print proxy.hello("asdfasdfasdf")
     print proxy.add(1,1)
+
+
